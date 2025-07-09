@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - DakshRaj Hair Systems</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffefd1;
+            color: #164253;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #a0866b, #164253);
+            color: #ffefd1;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(22, 66, 83, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8f663b, #164253);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffefd1;
+            font-weight: bold;
+            border: 2px solid #ffefd1;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-daksh {
+            color: #8f663b;
+        }
+
+        .logo-raj {
+            color: #164253;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #ffefd1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #8f663b;
+        }
+
+        .breadcrumb {
+            background-color: rgba(143, 102, 59, 0.1);
+            padding: 1rem 0;
+            border-bottom: 1px solid #8f663b;
+        }
+
+        .breadcrumb-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #164253;
+        }
+
+        .breadcrumb-nav a {
+            color: #8f663b;
+            text-decoration: none;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #164253;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #164253;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #8f663b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .filters-section {
+            background: rgba(143, 102, 59, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #8f663b;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #164253;
+        }
+
+        .filter-select, .filter-input {
+            padding: 0.5rem;
+            border: 2px solid #8f663b;
+            border-radius: 6px;
+            background-color: #ffefd1;
+            color: #164253;
+        }
+
+        .filter-select:focus, .filter-input:focus {
+            outline: none;
+            border-color: #164253;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #8f663b;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #ffefd1;
+            color: #164253;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #164253;
+        }
+
+        .results-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(22, 66, 83, 0.1);
+            border-radius: 8px;
+        }
+
+        .results-count {
+            color: #164253;
+            font-weight: 600;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .view-btn {
+            padding: 0.5rem;
+            border: 2px solid #8f663b;
+            background: #ffefd1;
+            color: #8f663b;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .view-btn.active, .view-btn:hover {
+            background: #8f663b;
+            color: #ffefd1;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .products-grid.grid-4 {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .product-card {
+            background: #ffefd1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(22, 66, 83, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #8f663b;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(22, 66, 83, 0.2);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #164253;
+            color: #ffefd1;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .product-badge.sale {
+            background: #dc2626;
+        }
+
+        .product-badge.new {
+            background: #8f663b;
+        }
+
+        .wishlist-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 239, 209, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #8f663b;
+        }
+
+        .wishlist-btn:hover, .wishlist-btn.active {
+            background: #8f663b;
+            color: #ffefd1;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-category {
+            color: #8f663b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #164253;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            color: #8f663b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .star {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .rating-text {
+            color: #8f663b;
+            font-size: 0.85rem;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #164253;
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: #8f663b;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background: #dc2626;
+            color: white;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #164253;
+            color: #ffefd1;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background: #8f663b;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8f663b;
+            border: 2px solid #8f663b;
+            padding: 0.5rem;
+        }
+
+        .btn-secondary:hover {
+            background: #8f663b;
+            color: #ffefd1;
+        }
+
+        .load-more {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-load-more {
+            background: #8f663b;
+            color: #ffefd1;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-load-more:hover {
+            background: #164253;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #8f663b;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #164253;
+        }
+
+        /* Quick View Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(22, 66, 83, 0.8);
+            overflow-y: auto;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: #ffefd1;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid #8f663b;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #8f663b;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #164253;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #8f663b;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: #8f663b;
+            color: #ffefd1;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .quick-view-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .quick-view-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .quick-view-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .quick-view-info h3 {
+            color: #164253;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-view-info p {
+            color: #8f663b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-info {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .quick-view-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">D</div>
+                <div class="logo-text">
+                    <span class="logo-daksh">DAKSH</span><span class="logo-raj">RAJ</span>
+                    <div style="font-size: 0.7rem; color: #ffefd1;">Hair Systems & Services</div>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-content">
+            <nav class="breadcrumb-nav">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Products</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Our Premium Products</h1>
+            <p class="page-subtitle">Discover our extensive collection of high-quality hair systems, wigs, and accessories designed to give you the perfect look and confidence you deserve.</p>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="filters-section">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label class="filter-label">Search Products</label>
+                    <input type="text" class="search-bar" id="searchInput" placeholder="Search by name or description...">
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Category</label>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="mens">Men's Hair Systems</option>
+                        <option value="womens">Women's Hair Systems</option>
+                        <option value="premium">Premium Collection</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Price Range</label>
+                    <select class="filter-select" id="priceFilter">
+                        <option value="">All Prices</option>
+                        <option value="0-5000">₹0 - ₹5,000</option>
+                        <option value="5000-15000">₹5,000 - ₹15,000</option>
+                        <option value="15000-30000">₹15,000 - ₹30,000</option>
+                        <option value="30000+">₹30,000+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Sort By</label>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name A-Z</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info">
+            <div class="results-count" id="resultsCount">Showing 32 products</div>
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="setGridView(3)" title="3 Columns">
+                    <i class="fas fa-th-large"></i>
+                </button>
+                <button class="view-btn" onclick="setGridView(4)" title="4 Columns">
+                    <i class="fas fa-th"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Men's Hair Systems -->
+            <div class="product-card" data-category="mens" data-price="12999" data-name="Natural Look Men's Toupee">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Natural Look Men's Toupee">
+                    <div class="product-badge new">New</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Natural Look Men's Toupee</h3>
+                    <p class="product-description">Premium quality human hair toupee with natural hairline and breathable base.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.8) 124 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹12,999</span>
+                        <span class="original-price">₹15,999</span>
+                        <span class="discount">19% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="18999" data-name="Executive Style Hair System">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Executive Style Hair System">
+                    <div class="product-badge">Premium</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Executive Style Hair System</h3>
+                    <p class="product-description">Professional grade hair system perfect for business executives and formal occasions.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 89 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹18,999</span>
+                        <span class="original-price">₹22,999</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="8999" data-name="Casual Wear Hair Piece">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Casual Wear Hair Piece">
+                    <div class="product-badge sale">Sale</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Casual Wear Hair Piece</h3>
+                    <p class="product-description">Comfortable and stylish hair piece perfect for everyday casual wear.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.2) 156 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹8,999</span>
+                        <span class="original-price">₹11,999</span>
+                        <span class="discount">25% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="25999" data-name="Luxury Silk Base Toupee">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Luxury Silk Base Toupee">
+                    <div class="product-badge">Luxury</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Luxury Silk Base Toupee</h3>
+                    <p class="product-description">Ultra-premium silk base toupee with hand-tied hair for the most natural look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(5.0) 45 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹25,999</span>
+                        <span class="original-price">₹29,999</span>
+                        <span class="discount">13% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="14999" data-name="Sports Active Hair System">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Sports Active Hair System">
+                    <div class="product-badge new">New</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Sports Active Hair System</h3>
+                    <p class="product-description">Sweat-resistant hair system designed for active lifestyle and sports activities.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.6) 78 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹14,999</span>
+                        <span class="original-price">₹17,999</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="16999" data-name="Classic Gentleman Toupee">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Classic Gentleman Toupee">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Classic Gentleman Toupee</h3>
+                    <p class="product-description">Timeless classic design with premium human hair for the distinguished gentleman.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.7) 92 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹16,999</span>
+                        <span class="original-price">₹19,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="11999" data-name="Modern Style Hair Piece">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Modern Style Hair Piece">
+                    <div class="product-badge">Trending</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Modern Style Hair Piece</h3>
+                    <p class="product-description">Contemporary design with latest styling trends for the modern man.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.4) 67 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹11,999</span>
+                        <span class="original-price">₹13,999</span>
+                        <span class="discount">14% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="mens" data-price="21999" data-name="Professional Grade Toupee">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Professional Grade Toupee">
+                    <div class="product-badge">Premium</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Professional Grade Toupee</h3>
+                    <p class="product-description">High-end professional toupee with superior craftsmanship and durability.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 103 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹21,999</span>
+                        <span class="original-price">₹25,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Women's Hair Systems -->
+            <div class="product-card" data-category="womens" data-price="15999" data-name="Elegant Women's Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Elegant Women's Wig">
+                    <div class="product-badge new">New</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Elegant Women's Wig</h3>
+                    <p class="product-description">Beautiful long hair wig with natural waves and premium quality human hair.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.8) 187 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹15,999</span>
+                        <span class="original-price">₹18,999</span>
+                        <span class="discount">16% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="22999" data-name="Luxury Lace Front Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Luxury Lace Front Wig">
+                    <div class="product-badge">Luxury</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Luxury Lace Front Wig</h3>
+                    <p class="product-description">Premium lace front wig with invisible hairline and natural parting.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 142 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹22,999</span>
+                        <span class="original-price">₹26,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="12999" data-name="Curly Hair Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Curly Hair Wig">
+                    <div class="product-badge sale">Sale</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Curly Hair Wig</h3>
+                    <p class="product-description">Bouncy curly hair wig perfect for adding volume and style to your look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.3) 98 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹12,999</span>
+                        <span class="original-price">₹16,999</span>
+                        <span class="discount">24% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="18999" data-name="Straight Silk Hair Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Straight Silk Hair Wig">
+                    <div class="product-badge">Premium</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Straight Silk Hair Wig</h3>
+                    <p class="product-description">Silky smooth straight hair wig with natural shine and movement.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.7) 156 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹18,999</span>
+                        <span class="original-price">₹21,999</span>
+                        <span class="discount">14% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="9999" data-name="Bob Cut Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Bob Cut Wig">
+                    <div class="product-badge">Trending</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Bob Cut Wig</h3>
+                    <p class="product-description">Stylish bob cut wig perfect for a chic and modern look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.2) 89 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹9,999</span>
+                        <span class="original-price">₹12,999</span>
+                        <span class="discount">23% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="24999" data-name="Celebrity Style Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Celebrity Style Wig">
+                    <div class="product-badge">Exclusive</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Celebrity Style Wig</h3>
+                    <p class="product-description">Glamorous celebrity-inspired wig with professional styling and premium quality.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 76 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹24,999</span>
+                        <span class="original-price">₹29,999</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="14999" data-name="Layered Hair Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Layered Hair Wig">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Layered Hair Wig</h3>
+                    <p class="product-description">Multi-layered wig with natural texture and movement for a dynamic look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.5) 112 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹14,999</span>
+                        <span class="original-price">₹17,999</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="19999" data-name="Vintage Style Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Vintage Style Wig">
+                    <div class="product-badge">Retro</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Vintage Style Wig</h3>
+                    <p class="product-description">Classic vintage-inspired wig with retro styling and timeless elegance.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.6) 67 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹19,999</span>
+                        <span class="original-price">₹23,999</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="16999" data-name="Beach Wave Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Beach Wave Wig">
+                    <div class="product-badge new">New</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Beach Wave Wig</h3>
+                    <p class="product-description">Natural beach wave texture wig for a relaxed and effortless look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.4) 94 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹16,999</span>
+                        <span class="original-price">₹19,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="11999" data-name="Pixie Cut Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Pixie Cut Wig">
+                    <div class="product-badge">Chic</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Pixie Cut Wig</h3>
+                    <p class="product-description">Short and sassy pixie cut wig for a bold and confident look.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.3) 58 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹11,999</span>
+                        <span class="original-price">₹14,999</span>
+                        <span class="discount">20% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Collection -->
+            <div class="product-card" data-category="premium" data-price="35999" data-name="Diamond Collection Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Diamond Collection Wig">
+                    <div class="product-badge">Diamond</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Diamond Collection Wig</h3>
+                    <p class="product-description">Ultra-premium diamond collection with the finest human hair and craftsmanship.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(5.0) 23 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹35,999</span>
+                        <span class="original-price">₹42,999</span>
+                        <span class="discount">16% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="premium" data-price="28999" data-name="Platinum Series Hair System">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Platinum Series Hair System">
+                    <div class="product-badge">Platinum</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Platinum Series Hair System</h3>
+                    <p class="product-description">Platinum grade hair system with advanced technology and superior comfort.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 34 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹28,999</span>
+                        <span class="original-price">₹33,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="premium" data-price="32999" data-name="Royal Collection Toupee">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Royal Collection Toupee">
+                    <div class="product-badge">Royal</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Royal Collection Toupee</h3>
+                    <p class="product-description">Fit for royalty - the ultimate in luxury hair systems with bespoke craftsmanship.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(5.0) 18 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹32,999</span>
+                        <span class="original-price">₹38,999</span>
+                        <span class="discount">15% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="premium" data-price="26999" data-name="Gold Standard Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Gold Standard Wig">
+                    <div class="product-badge">Gold</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Gold Standard Wig</h3>
+                    <p class="product-description">The gold standard in premium wigs with exceptional quality and styling.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.8) 41 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹26,999</span>
+                        <span class="original-price">₹31,999</span>
+                        <span class="discount">16% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="premium" data-price="29999" data-name="Elite Series Hair Piece">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Elite Series Hair Piece">
+                    <div class="product-badge">Elite</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Elite Series Hair Piece</h3>
+                    <p class="product-description">Elite series with cutting-edge technology and unmatched natural appearance.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.9) 27 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹29,999</span>
+                        <span class="original-price">₹34,999</span>
+                        <span class="discount">14% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="premium" data-price="24999" data-name="Signature Collection Wig">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Signature Collection Wig">
+                    <div class="product-badge">Signature</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Premium Collection</div>
+                    <h3 class="product-title">Signature Collection Wig</h3>
+                    <p class="product-description">Our signature premium wig with distinctive styling and superior quality.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.7) 52 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹24,999</span>
+                        <span class="original-price">₹28,999</span>
+                        <span class="discount">14% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div class="product-card" data-category="accessories" data-price="2999" data-name="Hair Care Kit">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Hair Care Kit">
+                    <div class="product-badge">Essential</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Hair Care Kit</h3>
+                    <p class="product-description">Complete hair care kit with shampoo, conditioner, and styling products.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.4) 203 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹2,999</span>
+                        <span class="original-price">₹3,999</span>
+                        <span class="discount">25% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="1999" data-name="Wig Stand">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Wig Stand">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Wig Stand</h3>
+                    <p class="product-description">Professional wig stand for proper storage and maintenance of your hair systems.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.6) 87 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹1,999</span>
+                        <span class="original-price">₹2,499</span>
+                        <span class="discount">20% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="1499" data-name="Adhesive Remover">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Adhesive Remover">
+                    <div class="product-badge">Professional</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Adhesive Remover</h3>
+                    <p class="product-description">Safe and effective adhesive remover for easy hair system maintenance.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.3) 124 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹1,499</span>
+                        <span class="original-price">₹1,999</span>
+                        <span class="discount">25% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="899" data-name="Styling Brush Set">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Styling Brush Set">
+                    <div class="product-badge new">New</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Styling Brush Set</h3>
+                    <p class="product-description">Professional styling brush set for perfect hair system maintenance and styling.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.2) 156 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹899</span>
+                        <span class="original-price">₹1,299</span>
+                        <span class="discount">31% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="3499" data-name="Premium Adhesive Kit">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Premium Adhesive Kit">
+                    <div class="product-badge">Premium</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Premium Adhesive Kit</h3>
+                    <p class="product-description">Complete premium adhesive kit with tapes, glues, and application tools.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.8) 93 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹3,499</span>
+                        <span class="original-price">₹4,299</span>
+                        <span class="discount">19% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Products -->
+            <div class="product-card" data-category="mens" data-price="13999" data-name="Textured Hair System">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Textured Hair System">
+                    <div class="product-badge">Textured</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Men's Hair Systems</div>
+                    <h3 class="product-title">Textured Hair System</h3>
+                    <p class="product-description">Modern textured hair system with natural movement and contemporary styling.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.5) 71 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹13,999</span>
+                        <span class="original-price">₹16,999</span>
+                        <span class="discount">18% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="womens" data-price="17999" data-name="Glamour Wig Collection">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Glamour Wig Collection">
+                    <div class="product-badge">Glamour</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Women's Hair Systems</div>
+                    <h3 class="product-title">Glamour Wig Collection</h3>
+                    <p class="product-description">Glamorous wig with stunning volume and shine for special occasions.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.8) 85 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹17,999</span>
+                        <span class="original-price">₹21,999</span>
+                        <span class="discount">18% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories" data-price="599" data-name="Travel Case">
+                <div class="product-image">
+                    <img src="/placeholder.svg?height=200&width=280" alt="Travel Case">
+                    <div class="product-badge">Portable</div>
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Accessories</div>
+                    <h3 class="product-title">Travel Case</h3>
+                    <p class="product-description">Compact travel case for safely carrying your hair system on the go.</p>
+                    <div class="product-rating">
+                        <div class="stars">
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="fas fa-star star"></i>
+                            <i class="far fa-star star"></i>
+                        </div>
+                        <span class="rating-text">(4.1) 134 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="current-price">₹599</span>
+                        <span class="original-price">₹899</span>
+                        <span class="discount">33% OFF</span>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart(this)">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                        <button class="btn btn-secondary" onclick="quickView(this)" title="Quick View">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No products found</h3>
+            <p>Try adjusting your search criteria or browse our categories.</p>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more">
+            <button class="btn btn-load-more" onclick="loadMoreProducts()">
+                <i class="fas fa-plus"></i> Load More Products
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Product Quick View</h2>
+                <button class="close-btn" onclick="closeQuickView()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quick-view-grid">
+                    <div class="quick-view-image">
+                        <img id="modalImage" src="/placeholder.svg" alt="">
+                    </div>
+                    <div class="quick-view-info">
+                        <h3 id="modalProductTitle"></h3>
+                        <p id="modalProductDescription"></p>
+                        <div class="product-rating">
+                            <div class="stars" id="modalStars"></div>
+                            <span class="rating-text" id="modalRating"></span>
+                        </div>
+                        <div class="product-price">
+                            <span class="current-price" id="modalCurrentPrice"></span>
+                            <span class="original-price" id="modalOriginalPrice"></span>
+                            <span class="discount" id="modalDiscount"></span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="addToCartFromModal()">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-secondary" onclick="addToWishlistFromModal()">
+                                <i class="fas fa-heart"></i> Add to Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919876543210?text=Hello! I'm interested in your hair systems and would like to know more about your products." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Product filtering and search functionality
+        let allProducts = [];
+        let filteredProducts = [];
+        let currentProducts = [];
+
+        // Initialize products array
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            allProducts = Array.from(productCards).map(card => ({
+                element: card,
+                category: card.dataset.category,
+                price: parseInt(card.dataset.price),
+                name: card.dataset.name.toLowerCase(),
+                title: card.querySelector('.product-title').textContent.toLowerCase(),
+                description: card.querySelector('.product-description').textContent.toLowerCase()
+            }));
+            filteredProducts = [...allProducts];
+            updateResultsCount();
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            filterProducts();
+        });
+
+        // Filter functionality
+        document.getElementById('categoryFilter').addEventListener('change', filterProducts);
+        document.getElementById('priceFilter').addEventListener('change', filterProducts);
+        document.getElementById('sortFilter').addEventListener('change', filterProducts);
+
+        function filterProducts() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const priceFilter = document.getElementById('priceFilter').value;
+            const sortFilter = document.getElementById('sortFilter').value;
+
+            filteredProducts = allProducts.filter(product => {
+                // Search filter
+                const matchesSearch = !searchTerm || 
+                    product.name.includes(searchTerm) || 
+                    product.title.includes(searchTerm) || 
+                    product.description.includes(searchTerm);
+
+                // Category filter
+                const matchesCategory = !categoryFilter || product.category === categoryFilter;
+
+                // Price filter
+                let matchesPrice = true;
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(p => p.replace('+', ''));
+                    if (max) {
+                        matchesPrice = product.price >= parseInt(min) && product.price <= parseInt(max);
+                    } else {
+                        matchesPrice = product.price >= parseInt(min);
+                    }
+                }
+
+                return matchesSearch && matchesCategory && matchesPrice;
+            });
+
+            // Sort products
+            if (sortFilter === 'price-low') {
+                filteredProducts.sort((a, b) => a.price - b.price);
+            } else if (sortFilter === 'price-high') {
+                filteredProducts.sort((a, b) => b.price - a.price);
+            } else if (sortFilter === 'name') {
+                filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            }
+
+            displayProducts();
+            updateResultsCount();
+        }
+
+        function displayProducts() {
+            const grid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+
+            // Hide all products first
+            allProducts.forEach(product => {
+                product.element.style.display = 'none';
+            });
+
+            if (filteredProducts.length === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+                filteredProducts.forEach(product => {
+                    product.element.style.display = 'block';
+                });
+            }
+        }
+
+        function updateResultsCount() {
+            const count = filteredProducts.length;
+            document.getElementById('resultsCount').textContent = `Showing ${count} product${count !== 1 ? 's' : ''}`;
+        }
+
+        // Grid view toggle
+        function setGridView(columns) {
+            const grid = document.getElementById('productsGrid');
+            const buttons = document.querySelectorAll('.view-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (columns === 4) {
+                grid.classList.add('grid-4');
+            } else {
+                grid.classList.remove('grid-4');
+            }
+        }
+
+        // Wishlist functionality
+        function toggleWishlist(button) {
+            const icon = button.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                button.classList.add('active');
+                showNotification('Added to wishlist!', 'success');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                button.classList.remove('active');
+                showNotification('Removed from wishlist!', 'info');
+            }
+        }
+
+        // Add to cart functionality
+        function addToCart(button) {
+            const card = button.closest('.product-card');
+            const title = card.querySelector('.product-title').textContent;
+            const price = card.querySelector('.current-price').textContent;
+            
+            // Add animation
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Adding...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i> Added!';
+                button.classList.add('success-bounce');
+                showNotification(`${title} added to cart!`, 'success');
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-shopping-cart"></i> Add to Cart';
+                    button.disabled = false;
+                    button.classList.remove('success-bounce');
+                }, 2000);
+            }, 1000);
+        }
+
+        // Quick view functionality
+        let currentQuickViewProduct = null;
+
+        function quickView(button) {
+            const card = button.closest('.product-card');
+            const title = card.querySelector('.product-title').textContent;
+            const description = card.querySelector('.product-description').textContent;
+            const currentPrice = card.querySelector('.current-price').textContent;
+            const originalPrice = card.querySelector('.original-price')?.textContent || '';
+            const discount = card.querySelector('.discount')?.textContent || '';
+            const image = card.querySelector('img').src;
+            const rating = card.querySelector('.rating-text').textContent;
+            const stars = card.querySelector('.stars').innerHTML;
+
+            // Populate modal
+            document.getElementById('modalTitle').textContent = 'Quick View';
+            document.getElementById('modalProductTitle').textContent = title;
+            document.getElementById('modalProductDescription').textContent = description;
+            document.getElementById('modalCurrentPrice').textContent = currentPrice;
+            document.getElementById('modalOriginalPrice').textContent = originalPrice;
+            document.getElementById('modalDiscount').textContent = discount;
+            document.getElementById('modalImage').src = image;
+            document.getElementById('modalRating').textContent = rating;
+            document.getElementById('modalStars').innerHTML = stars;
+
+            currentQuickViewProduct = card;
+            document.getElementById('quickViewModal').classList.add('show');
+        }
+
+        function closeQuickView() {
+            document.getElementById('quickViewModal').classList.remove('show');
+            currentQuickViewProduct = null;
+        }
+
+        function addToCartFromModal() {
+            if (currentQuickViewProduct) {
+                const addToCartBtn = currentQuickViewProduct.querySelector('.btn-primary');
+                addToCart(addToCartBtn);
+                closeQuickView();
+            }
+        }
+
+        function addToWishlistFromModal() {
+            if (currentQuickViewProduct) {
+                const wishlistBtn = currentQuickViewProduct.querySelector('.wishlist-btn');
+                toggleWishlist(wishlistBtn);
+            }
+        }
+
+        // Load more functionality
+        function loadMoreProducts() {
+            showNotification('All products are already loaded!', 'info');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
