@@ -855,24 +855,55 @@
 
 <body>
     <!-- Header -->
-    <header  class="header">
-        <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">D</div>
-                <div style="color: #164253;" class="logo-text">DAKSHRAJ<span style="color: #911919;">Hair Systems & Services</span></div>
+  <header href="Homes"  class=" shadow-md sticky top-0 z-40" style="background-color: #ffefd1;">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <!-- Logo -->
+                <div class="flex items-center cursor-pointer" onclick="scrollToTop()">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-red-600 rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-lg md:text-xl">D</span>
+                    </div>
+                    <div class="ml-2 md:ml-3">
+                        <span class="text-xl md:text-2xl font-bold text-gray-800">DAKSHRAJ</span>
+                        <p class="text-xs text-gray-500 hidden md:block">Hair Systems & Services</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#" onclick="scrollToSection('products')" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">Products</a>
+                    <a href="#" onclick="scrollToSection('services')" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">Services</a>
+                    <a href="#" onclick="showMenProducts()" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">Men</a>
+                    <a href="#" onclick="showWomenProducts()" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">Women</a>
+                    <a href="#" onclick="scrollToSection('about')" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">About</a>
+                    <a href="#" onclick="scrollToSection('contact')" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">Contact</a>
+                    <a href="Photos/HAIR NOW CATALOGUE 15pg file.pdf_20250628_141728_0000.pdf" onclick="scrollToSection('contact')" class="text-gray-700 hover:text-red-600 transition-colors font-medium cursor-pointer">PDF</a>
+                </nav>
+
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-2 md:space-x-4">
+                    <button onclick="toggleCart()" class="relative p-2 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-shopping-cart text-lg md:text-xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center cart-count hidden">0</span>
+                    </button>
+
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2">
+                        <i id="mobile-menu-icon" class="fas fa-bars text-lg md:text-xl"></i>
+                    </button>
+                </div>
             </div>
-            <button class="mobile-menu-btn" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html" class="active">Products</a></li>
-                    <li><a href="https://www.instagram.com/dakshraj_hair_replacement?igsh=eGM4YnBieHN6bXB2">Follow </a></li>
-                    <li><a href="Photos/HAIR NOW CATALOGUE 15pg file.pdf_20250628_141728_0000.pdf">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden py-4 border-t bg-white hidden mobile-menu-enter">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#" onclick="scrollToSection('products'); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">Products</a>
+                    <a href="#" onclick="scrollToSection('services'); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">Services</a>
+                    <a href="#" onclick="showMenProducts(); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">Men</a>
+                    <a href="#" onclick="showWomenProducts(); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">Women</a>
+                    <a href="#" onclick="scrollToSection('about'); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">About</a>
+                    <a href="#" onclick="scrollToSection('contact'); toggleMobileMenu();" class="text-gray-700 hover:text-red-600 transition-colors font-medium px-4 py-2">Contact</a>
+                </nav>
+            </div>
         </div>
     </header>
     <!-- Breadcrumb -->
