@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DakshRaj Hair Systems - Premium Hair Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #121212;
+            --secondary: #ff7e33;
+            --accent: #25d366;
+            --text-light: #f0f0f0;
+            --text-dark: #333;
+            --card-bg: #1e1e1e;
+            --card-hover: #2a2a2a;
+            --border: #333;
+            --overlay: rgba(0, 0, 0, 0.8);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c, #1a1a1a);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: rgba(18, 18, 18, 0.95);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff7e33, #ff5e00);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 126, 51, 0.4);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .logo-text span {
+            font-weight: 300;
+            font-size: 0.9rem;
+            display: block;
+            letter-spacing: 2px;
+            color: #ff7e33;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .cart-icon:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: var(--secondary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 2000;
+            transition: right 0.4s ease-in-out;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .close-mobile-menu {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .mobile-nav-links a i {
+            width: 30px;
+            text-align: center;
+        }
+        
+        .mobile-cart-icon {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .mobile-cart-count {
+            background: var(--secondary);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 2000;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            transition: right 0.4s ease-in-out;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .cart-modal.active {
+            right: 0;
+        }
+        
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .cart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .close-cart:hover {
+            color: var(--secondary);
+        }
+        
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-item-price {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--secondary);
+        }
+        
+        .quantity-display {
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #ff4d4d;
+            cursor: pointer;
+            font-size: 1.2rem;
+            align-self: flex-start;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 1.5rem 0;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .checkout-btn:hover {
+            background: #128c7e;
+            transform: translateY(-3px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), 
+                        url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #ff7e33, #ffaa33);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #ff7e33, #ff5e00);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 126, 51, 0.4);
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 126, 51, 0.6);
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid var(--border);
+            position: relative;
+            transform: translateY(0);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 126, 51, 0.2);
+            border-color: rgba(255, 126, 51, 0.5);
+        }
+        
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+        
+        .product-info {
+            padding: 1.8rem;
+        }
+        
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .product-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .original-price {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: line-through;
+        }
+        
+        .discount {
+            background: var(--secondary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+        
+        .btn {
+            padding: 0.9rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            flex: 1;
+            background: linear-gradient(135deg, #ff7e33, #ff5e00);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff6a1a, #ff4d00);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 126, 51, 0.4);
+        }
+
+        .btn-view {
+            flex: 1; /* Make it take available space */
+            background: rgba(255,255,255,0.1);
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-view:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 126, 51, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0c0c0c;
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(255, 126, 51, 0.4);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+        
+            .mobile-menu-btn {
+                display: block;
+            }
+        
+            .header-content {
+                padding: 0 1.5rem;
+            }
+        
+            .hero-title {
+                font-size: 3rem;
+            }
+        
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        
+            .section-title {
+                font-size: 2.2rem;
+            }
+        
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+        
+            .cart-icon {
+                margin-left: auto;
+            }
+        
+            .hero {
+                height: 70vh;
+            }
+        
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        
+            .products-section {
+                padding: 3rem 1rem;
+            }
+        
+            .section-title {
+                font-size: 2rem;
+            }
+        
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        
+            .product-info {
+                padding: 1.2rem;
+            }
+        
+            .product-title {
+                font-size: 1.1rem;
+            }
+        
+            .product-description {
+                font-size: 0.9rem;
+            }
+        
+            .current-price {
+                font-size: 1.3rem;
+            }
+        
+            .product-actions {
+                flex-direction: column;
+            }
+        
+            .btn {
+                width: 100%;
+                padding: 0.8rem;
+            }
+        
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+        
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        
+            .footer-links li {
+                display: inline-block;
+                margin: 0 0.5rem;
+            }
+        
+            .footer-links a {
+                justify-content: center;
+            }
+        
+            .contact-info {
+                align-items: center;
+            }
+        
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">D</div>
+                <h1 class="logo-text">DakshRaj <span>Hair Systems</span></h1>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" id="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h2 class="logo-text">DakshRaj</h2>
+            <button class="close-mobile-menu" id="close-mobile-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#products"><i class="fas fa-boxes"></i> Products</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li>
+                <div class="mobile-cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="mobile-cart-count">0</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Cart</h2>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p style="text-align: center; color: rgba(255,255,255,0.7);">Your cart is empty.</p>
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cart-total-price">₹0.00</span>
+        </div>
+        <a href="#" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h2 class="hero-title">Experience Unmatched Quality</h2>
+                <p class="hero-subtitle">Discover premium hair systems designed for natural look, comfort, and durability.</p>
+                <a href="#products" class="cta-button">Explore Products</a>
+            </div>
+        </section>
+
+        <section class="products-section" id="products">
+            <div class="section-header">
+                <h2 class="section-title">Our Premium Hair Systems</h2>
+                <p class="section-subtitle">Hand-picked selection of the finest hair patches and systems for every need.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">New Arrival</span>
+                        <img src="https://via.placeholder.com/400x250/FF7E33/FFFFFF?text=Hair+System+1" alt="Hair System 1">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Men's Solutions</div>
+                        <h3 class="product-title">DakshRaj Classic Hair Patch</h3>
+                        <p class="product-description">Premium quality, natural looking hair patch for men. Undetectable and comfortable.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹1200.00</span>
+                            <span class="original-price">₹1500.00</span>
+                            <span class="discount">-20%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart"
+                                data-id="1"
+                                data-name="DakshRaj Classic Hair Patch"
+                                data-price="1200.00"
+                                data-image="https://via.placeholder.com/400x250/FF7E33/FFFFFF?text=Hair+System+1">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <a href="#" class="btn btn-view">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x250/1E1E1E/FFFFFF?text=Hair+System+2" alt="Hair System 2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Solutions</div>
+                        <h3 class="product-title">DakshRaj Elegance Topper</h3>
+                        <p class="product-description">Lightweight and breathable hair topper for women. Adds volume and coverage naturally.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹1800.00</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart"
+                                data-id="2"
+                                data-name="DakshRaj Elegance Topper"
+                                data-price="1800.00"
+                                data-image="https://via.placeholder.com/400x250/1E1E1E/FFFFFF?text=Hair+System+2">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <a href="#" class="btn btn-view">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">Best Seller</span>
+                        <img src="https://via.placeholder.com/400x250/25D366/FFFFFF?text=Hair+System+3" alt="Hair System 3">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Unisex</div>
+                        <h3 class="product-title">DakshRaj Full Lace System</h3>
+                        <p class="product-description">Full lace system for complete coverage and versatile styling. Ultra-realistic look.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹3500.00</span>
+                            <span class="original-price">₹4000.00</span>
+                            <span class="discount">-12.5%</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart"
+                                data-id="3"
+                                data-name="DakshRaj Full Lace System"
+                                data-price="3500.00"
+                                data-image="https://via.placeholder.com/400x250/25D366/FFFFFF?text=Hair+System+3">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <a href="#" class="btn btn-view">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/400x250/FF5E00/FFFFFF?text=Hair+System+4" alt="Hair System 4">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">DakshRaj Adhesive Remover</h3>
+                        <p class="product-description">Gentle yet effective adhesive remover, safe for skin and hair systems.</p>
+                        <div class="product-price">
+                            <span class="current-price">₹450.00</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary add-to-cart"
+                                data-id="4"
+                                data-name="DakshRaj Adhesive Remover"
+                                data-price="450.00"
+                                data-image="https://via.placeholder.com/400x250/FF5E00/FFFFFF?text=Hair+System+4">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <a href="#" class="btn btn-view">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" style="height: 50vh; display: flex; justify-content: center; align-items: center; background: var(--card-bg); margin: 2rem auto; max-width: 1400px; border-radius: 15px;">
+            <h2 style="color: var(--secondary);">About Us Section Coming Soon!</h2>
+        </section>
+
+        <section id="contact" style="height: 50vh; display: flex; justify-content: center; align-items: center; background: var(--card-bg); margin: 2rem auto; max-width: 1400px; border-radius: 15px;">
+            <h2 style="color: var(--secondary);">Contact Section Coming Soon!</h2>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <a href="#" class="logo">
+                    <div class="logo-icon">D</div>
+                    <h1 class="logo-text">DakshRaj <span>Hair Systems</span></h1>
+                </a>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 1rem;">Your trusted partner for premium hair solutions, designed for confidence and comfort.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#products"><i class="fas fa-chevron-right"></i> Products</a></li>
+                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <span>123 Hairline Street, Indore, MP, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>info@dakshrajhairsystems.com</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 DakshRaj Hair Systems. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCartBtn = document.getElementById('close-cart');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const cartCountElements = document.querySelectorAll('.cart-count, .mobile-cart-count');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        const mobileNavLinks = document.querySelector('.mobile-nav-links');
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const MIN_ORDER_QUANTITY = 10; // Define minimum order quantity
+
+        // Functions for Cart and Mobile Menu
+        function toggleCart() {
+            cartModal.classList.toggle('active');
+        }
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountElements.forEach(element => {
+                element.textContent = totalItems;
+            });
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = ''; // Clear existing items
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.7);">Your cart is empty.</p>';
+                updateCartTotal();
+                return;
+            }
+
+            cart.forEach(item => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.classList.add('cart-item');
+                cartItemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">₹${(item.price * item.quantity).toFixed(2)}</div>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" data-id="${item.id}" data-action="decrease">-</button>
+                            <span class="quantity-display">${item.quantity}</span>
+                            <button class="quantity-btn" data-id="${item.id}" data-action="increase">+</button>
+                        </div>
+                    </div>
+                    <button class="cart-item-remove" data-id="${item.id}"><i class="fas fa-trash-alt"></i></button>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            updateCartTotal();
+        }
+
+        function updateCartTotal() {
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotalPrice.textContent = `₹${total.toFixed(2)}`;
+        }
+
+        function addToCart(product) {
+            let quantityToAdd = MIN_ORDER_QUANTITY; // Always add at least the minimum quantity
+
+            const existingItemIndex = cart.findIndex(item => item.id === product.id);
+
+            if (existingItemIndex > -1) {
+                // If item exists, ensure quantity meets minimum if it falls below
+                let currentQuantity = cart[existingItemIndex].quantity;
+                if (currentQuantity < MIN_ORDER_QUANTITY) {
+                    cart[existingItemIndex].quantity = MIN_ORDER_QUANTITY;
+                } else {
+                    // If already at or above MIN_ORDER_QUANTITY, just add one more (or whatever logic you prefer for subsequent adds)
+                    // For this request, we'll assume adding again simply means adding the MIN_ORDER_QUANTITY if it's not present, or incrementing by 1
+                    cart[existingItemIndex].quantity += 1; // You can change this to `quantityToAdd` if you want to always add 10
+                }
+                alert(`${product.name} quantity updated in cart. Minimum order quantity is ${MIN_ORDER_QUANTITY}.`);
+
+            } else {
+                cart.push({ ...product, quantity: quantityToAdd });
+                alert(`${quantityToAdd} pieces of ${product.name} added to cart. Minimum order quantity for this item is ${MIN_ORDER_QUANTITY}.`);
+            }
+            saveCart();
+            renderCartItems();
+            updateCartCount();
+        }
+
+        function updateQuantity(id, action) {
+            const itemIndex = cart.findIndex(item => item.id === id);
+
+            if (itemIndex > -1) {
+                if (action === 'increase') {
+                    cart[itemIndex].quantity++;
+                } else if (action === 'decrease') {
+                    cart[itemIndex].quantity--;
+                    if (cart[itemIndex].quantity < MIN_ORDER_QUANTITY) {
+                        alert(`Minimum order quantity for ${cart[itemIndex].name} is ${MIN_ORDER_QUANTITY} pieces.`);
+                        cart[itemIndex].quantity = MIN_ORDER_QUANTITY; // Revert to minimum if below
+                    }
+                }
+
+                if (cart[itemIndex].quantity <= 0) {
+                    cart.splice(itemIndex, 1); // Remove if quantity drops to 0 or less
+                }
+                saveCart();
+                renderCartItems();
+                updateCartCount();
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart();
+            renderCartItems();
+            updateCartCount();
+        }
+
+        // Event Listeners
+        cartIcon.addEventListener('click', toggleCart);
+        closeCartBtn.addEventListener('click', toggleCart);
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        closeMobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        
+        // Close mobile menu when a link is clicked
+        mobileNavLinks.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A') {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+
+        // Add to Cart buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const product = {
+                    id: event.target.dataset.id,
+                    name: event.target.dataset.name,
+                    price: parseFloat(event.target.dataset.price),
+                    image: event.target.dataset.image
+                };
+                addToCart(product);
+            });
+        });
+
+        // Quantity controls and remove button inside cart modal
+        cartItemsContainer.addEventListener('click', (event) => {
+            if (event.target.classList.contains('quantity-btn')) {
+                const id = event.target.dataset.id;
+                const action = event.target.dataset.action;
+                updateQuantity(id, action);
+            } else if (event.target.closest('.cart-item-remove')) {
+                const id = event.target.closest('.cart-item-remove').dataset.id;
+                removeFromCart(id);
+            }
+        });
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartItems();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
